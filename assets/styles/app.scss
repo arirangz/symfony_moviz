@@ -4,3 +4,41 @@ $secondary: #323b3c;
 
 // the ~ allows you to reference things in node_modules
 @import "~bootstrap/scss/bootstrap";
+
+
+.rate {
+    display: flex;
+    flex-flow: row-reverse;
+    justify-content: left;
+}
+
+.rate input[type="radio"] {
+    display: none;
+}
+
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+.rate.enabled:not(:checked) > label:hover,
+.rate.enabled:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.rate.enabled > input:checked + label:hover,
+.rate.enabled > input:checked + label:hover ~ label,
+.rate.enabled > input:checked ~ label:hover,
+.rate.enabled > input:checked ~ label:hover ~ label,
+.rate.enabled > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}

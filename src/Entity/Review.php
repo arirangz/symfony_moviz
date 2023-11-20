@@ -15,7 +15,7 @@ class Review
     private ?int $id = null;
 
     #[ORM\Column(type: Types::SMALLINT)]
-    private ?int $rate = null;
+    private ?int $rate = 1;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $review = null;
