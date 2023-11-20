@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Titre du film
+{% endblock %}
+
+{% block body %}
+
+	<div class="row flex-lg-row-reverse  g-5 py-5">
+		<div class="col-10 col-sm-8 col-lg-4">
+            {% if movie.imageName %}
+                <img src="{{ vich_uploader_asset(movie, 'imageFile') }}" class="card-img-top" alt="affiche {{ movie.name }}">
+            {% else %}
+                <img src="{{ asset('build/images/default-movie.png') }}" class="card-img-top" alt="affiche {{ movie.name }}">
+            {% endif %}
+		</div>
+		<div class="col-lg-8">
+			<h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">{{ movie.name }}</h1>
+			<p class="lead">{{ movie.synopsis|raw }}</p>
+		</div>
+	</div>
+
+    <div class="row">
+        {{ include('partials/review/_form.html.twig') }}
+    </div>
+
+{% endblock %}
